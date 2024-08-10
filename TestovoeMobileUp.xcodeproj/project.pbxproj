@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351266C2C6614C70040A43D /* PersistanceManager.swift */; };
+		735126702C6615AA0040A43D /* TMUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351266F2C6615AA0040A43D /* TMUError.swift */; };
+		735126722C66216A0040A43D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735126712C66216A0040A43D /* MainVC.swift */; };
+		73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */; };
+		73AF8E8F2C654ACC007F9F1F /* WebViewVKAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */; };
 		73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E792C64DCE400B53360 /* AppDelegate.swift */; };
 		73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */; };
-		73F24E7E2C64DCE400B53360 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7D2C64DCE400B53360 /* ViewController.swift */; };
 		73F24E832C64DCE600B53360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E822C64DCE600B53360 /* Assets.xcassets */; };
 		73F24E862C64DCE600B53360 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E852C64DCE600B53360 /* Base */; };
 		73F24E912C64DCE600B53360 /* TestovoeMobileUpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E902C64DCE600B53360 /* TestovoeMobileUpTests.swift */; };
@@ -35,10 +39,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7351266C2C6614C70040A43D /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
+		7351266F2C6615AA0040A43D /* TMUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUError.swift; sourceTree = "<group>"; };
+		735126712C66216A0040A43D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthVC.swift; sourceTree = "<group>"; };
+		73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVKAuth.swift; sourceTree = "<group>"; };
 		73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestovoeMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F24E792C64DCE400B53360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		73F24E7D2C64DCE400B53360 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		73F24E822C64DCE600B53360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		73F24E852C64DCE600B53360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		73F24E872C64DCE600B53360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,6 +82,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		735126672C66142D0040A43D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				7351266E2C6615780040A43D /* Managers */,
+				7351266F2C6615AA0040A43D /* TMUError.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		735126692C6614400040A43D /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		7351266A2C66144D0040A43D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */,
+				73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */,
+				735126712C66216A0040A43D /* MainVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7351266B2C6614700040A43D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				73F24E822C64DCE600B53360 /* Assets.xcassets */,
+				73F24E842C64DCE600B53360 /* LaunchScreen.storyboard */,
+				73F24E792C64DCE400B53360 /* AppDelegate.swift */,
+				73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		7351266E2C6615780040A43D /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				7351266C2C6614C70040A43D /* PersistanceManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		73F24E6D2C64DCE400B53360 = {
 			isa = PBXGroup;
 			children = (
@@ -97,11 +150,10 @@
 		73F24E782C64DCE400B53360 /* TestovoeMobileUp */ = {
 			isa = PBXGroup;
 			children = (
-				73F24E792C64DCE400B53360 /* AppDelegate.swift */,
-				73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */,
-				73F24E7D2C64DCE400B53360 /* ViewController.swift */,
-				73F24E822C64DCE600B53360 /* Assets.xcassets */,
-				73F24E842C64DCE600B53360 /* LaunchScreen.storyboard */,
+				735126672C66142D0040A43D /* Model */,
+				735126692C6614400040A43D /* View */,
+				7351266A2C66144D0040A43D /* Controller */,
+				7351266B2C6614700040A43D /* Support */,
 				73F24E872C64DCE600B53360 /* Info.plist */,
 			);
 			path = TestovoeMobileUp;
@@ -254,9 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73F24E7E2C64DCE400B53360 /* ViewController.swift in Sources */,
+				735126702C6615AA0040A43D /* TMUError.swift in Sources */,
+				73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */,
 				73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */,
+				7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */,
+				735126722C66216A0040A43D /* MainVC.swift in Sources */,
 				73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */,
+				73AF8E8F2C654ACC007F9F1F /* WebViewVKAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +486,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS5A9QFHJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestovoeMobileUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -457,6 +514,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = VS5A9QFHJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestovoeMobileUp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

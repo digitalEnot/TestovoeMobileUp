@@ -10,6 +10,7 @@ import UIKit
 class VKAuthVC: UIViewController {
     let titleText = UILabel()
     let vkButton = UIButton()
+    var token = String()
     
 
     override func viewDidLoad() {
@@ -57,9 +58,13 @@ class VKAuthVC: UIViewController {
     
     @objc func vkButtonTapped() {
         let webView = WebViewVKAuth()
-//        navigationController?.pushViewController(webView, animated: true)
-//        webView.modalPresentationStyle = .overFullScreen
-//        webView.modalTransitionStyle = .crossDissolve
+        webView.delegate = self
         present(webView, animated: true)
+    }
+}
+
+extension VKAuthVC: WebViewDelegate {
+    func didGetToken() {
+        navigationController?.pushViewController(MainVC(token: token), animated: true)
     }
 }

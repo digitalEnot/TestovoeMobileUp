@@ -20,50 +20,46 @@ enum PersistanceManager {
     
     static func updateWith(token: String, actionType: PersistanceActionType) throws {
         do {
-            var retrivedFavorites = try retrieveFavorites()
+            var retrivedToken = try retrieveToken()
             
             switch actionType {
             case .add:
-                guard !retrivedFavorites.contains(favorite) else {
-                    throw LMIError.alreadyInFavorites
-                }
-                retrivedFavorites.append(favorite)
+                retrivedToken = token
             case .remove:
-                retrivedFavorites.removeAll { $0.name == favorite.name }
+                retrivedToken = ""
             }
             
-            if let error = save(favorites: retrivedFavorites) {
+            if let error = saveToken(token: retrivedToken) {
                 throw error
             }
         }
         catch {
-            throw LMIError.somethingWentWrong
+            throw TMUError.unableToLogIn
         }
     }
     
     
-    static func retrieveFavorites() throws -> [Cocktail] {
-        guard let favoritesData = defaults.object(forKey: Keys.favorites) as? Data else {
-            return []
+    static func retrieveToken() throws -> String {
+        guard let tokenData = defaults.object(forKey: Keys.accessToken) as? Data else {
+            return ""
         }
         
         do {
             let decoder = JSONDecoder()
-            return try decoder.decode([Cocktail].self, from: favoritesData)
+            return try decoder.decode(String.self, from: tokenData)
         } catch {
-            throw LMIError.unableToFavorite
+            throw TMUError.unableToLogIn
         }
     }
     
-    
-    static func save(favorites: [Cocktail]) -> LMIError? {
+    static func saveToken(token: String) -> TMUError? {
         do {
             let enconder = JSONEncoder()
-            let encodedFavorites = try enconder.encode(favorites)
-            defaults.set(encodedFavorites, forKey: Keys.favorites)
+            let encodedToken = try enconder.encode(token)
+            defaults.set(encodedToken, forKey: Keys.accessToken)
             return nil
         } catch {
-            return .unableToFavorite
+            return .unableToLogIn
         }
     }
 }

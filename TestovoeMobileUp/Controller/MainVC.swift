@@ -8,22 +8,45 @@
 import UIKit
 
 class MainVC: UIViewController {
+    
+    var token: String
+    let label = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        title = " MobileUP Gallery"
+        view.backgroundColor = .systemBackground
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .done, target: self, action: #selector(logOut))
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    init(token: String) {
+        self.token = token
+        super.init(nibName: nil, bundle: nil)
     }
-    */
-
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func configure() {
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "ЗДАРОВА"
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+        ])
+    }
+    
+    @objc func logOut() {
+        print("you logged out")
+        do {
+           try PersistanceManager.updateWith(token: "", actionType: .remove)
+        } catch {
+            // переделать на алерт
+            print(error)
+        }
+        navigationController?.popViewController(animated: true)
+    }
 }
