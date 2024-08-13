@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		730522172C68ADFB0069F56D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730522162C68ADFB0069F56D /* TokenManager.swift */; };
+		7309E6222C67A5C200652065 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6212C67A5C200652065 /* UIHelper.swift */; };
+		7309E6242C67A66100652065 /* VkPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6232C67A66100652065 /* VkPhotoCell.swift */; };
+		7309E62A2C67AD0F00652065 /* VkVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6292C67AD0F00652065 /* VkVideoCell.swift */; };
+		7309E62C2C67CC3D00652065 /* VkPhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E62B2C67CC3D00652065 /* VkPhoto.swift */; };
+		7309E62E2C67CCEB00652065 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E62D2C67CCEB00652065 /* NetworkManager.swift */; };
+		7309E6342C67FD4D00652065 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7309E6332C67FD4D00652065 /* Alamofire */; };
 		7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351266C2C6614C70040A43D /* PersistanceManager.swift */; };
 		735126702C6615AA0040A43D /* TMUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351266F2C6615AA0040A43D /* TMUError.swift */; };
 		735126722C66216A0040A43D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735126712C66216A0040A43D /* MainVC.swift */; };
 		73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */; };
-		73AF8E8F2C654ACC007F9F1F /* WebViewVKAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */; };
 		73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E792C64DCE400B53360 /* AppDelegate.swift */; };
 		73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */; };
 		73F24E832C64DCE600B53360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E822C64DCE600B53360 /* Assets.xcassets */; };
@@ -39,11 +45,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		730522162C68ADFB0069F56D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		7309E6212C67A5C200652065 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		7309E6232C67A66100652065 /* VkPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkPhotoCell.swift; sourceTree = "<group>"; };
+		7309E6292C67AD0F00652065 /* VkVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkVideoCell.swift; sourceTree = "<group>"; };
+		7309E62B2C67CC3D00652065 /* VkPhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkPhoto.swift; sourceTree = "<group>"; };
+		7309E62D2C67CCEB00652065 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		7351266C2C6614C70040A43D /* PersistanceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceManager.swift; sourceTree = "<group>"; };
 		7351266F2C6615AA0040A43D /* TMUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUError.swift; sourceTree = "<group>"; };
 		735126712C66216A0040A43D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthVC.swift; sourceTree = "<group>"; };
-		73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewVKAuth.swift; sourceTree = "<group>"; };
 		73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestovoeMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F24E792C64DCE400B53360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7309E6342C67FD4D00652065 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,6 +99,7 @@
 			children = (
 				7351266E2C6615780040A43D /* Managers */,
 				7351266F2C6615AA0040A43D /* TMUError.swift */,
+				7309E62B2C67CC3D00652065 /* VkPhoto.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -94,6 +107,7 @@
 		735126692C6614400040A43D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73B2C4822C6B59670047219A /* Cells */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -101,7 +115,6 @@
 		7351266A2C66144D0040A43D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				73AF8E8E2C654ACC007F9F1F /* WebViewVKAuth.swift */,
 				73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */,
 				735126712C66216A0040A43D /* MainVC.swift */,
 			);
@@ -123,8 +136,19 @@
 			isa = PBXGroup;
 			children = (
 				7351266C2C6614C70040A43D /* PersistanceManager.swift */,
+				7309E62D2C67CCEB00652065 /* NetworkManager.swift */,
+				730522162C68ADFB0069F56D /* TokenManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		73B2C4822C6B59670047219A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7309E6292C67AD0F00652065 /* VkVideoCell.swift */,
+				7309E6232C67A66100652065 /* VkPhotoCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		73F24E6D2C64DCE400B53360 = {
@@ -155,6 +179,7 @@
 				7351266A2C66144D0040A43D /* Controller */,
 				7351266B2C6614700040A43D /* Support */,
 				73F24E872C64DCE600B53360 /* Info.plist */,
+				7309E6212C67A5C200652065 /* UIHelper.swift */,
 			);
 			path = TestovoeMobileUp;
 			sourceTree = "<group>";
@@ -192,6 +217,9 @@
 			dependencies = (
 			);
 			name = TestovoeMobileUp;
+			packageProductDependencies = (
+				7309E6332C67FD4D00652065 /* Alamofire */,
+			);
 			productName = TestovoeMobileUp;
 			productReference = 73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */;
 			productType = "com.apple.product-type.application";
@@ -264,6 +292,9 @@
 				Base,
 			);
 			mainGroup = 73F24E6D2C64DCE400B53360;
+			packageReferences = (
+				7309E6322C67FD4D00652065 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 73F24E772C64DCE400B53360 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -306,13 +337,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7309E62C2C67CC3D00652065 /* VkPhoto.swift in Sources */,
+				7309E62A2C67AD0F00652065 /* VkVideoCell.swift in Sources */,
 				735126702C6615AA0040A43D /* TMUError.swift in Sources */,
 				73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */,
 				73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */,
 				7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */,
 				735126722C66216A0040A43D /* MainVC.swift in Sources */,
+				730522172C68ADFB0069F56D /* TokenManager.swift in Sources */,
 				73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */,
-				73AF8E8F2C654ACC007F9F1F /* WebViewVKAuth.swift in Sources */,
+				7309E62E2C67CCEB00652065 /* NetworkManager.swift in Sources */,
+				7309E6222C67A5C200652065 /* UIHelper.swift in Sources */,
+				7309E6242C67A66100652065 /* VkPhotoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +683,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7309E6322C67FD4D00652065 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7309E6332C67FD4D00652065 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7309E6322C67FD4D00652065 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 73F24E6E2C64DCE400B53360 /* Project object */;
 }

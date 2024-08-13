@@ -11,6 +11,7 @@ enum PersistanceActionType {
     case add, remove
 }
 
+// TODO: сократить кол-во функций
 enum PersistanceManager {
     enum Keys {
         static let accessToken = "accessToken"
@@ -18,13 +19,13 @@ enum PersistanceManager {
     
     static private let defaults = UserDefaults.standard
     
-    static func updateWith(token: String, actionType: PersistanceActionType) throws {
+    static func updateWith(accessToken: String, actionType: PersistanceActionType) throws {
         do {
             var retrivedToken = try retrieveToken()
             
             switch actionType {
             case .add:
-                retrivedToken = token
+                retrivedToken = accessToken
             case .remove:
                 retrivedToken = ""
             }
