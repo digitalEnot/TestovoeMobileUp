@@ -58,7 +58,7 @@ class VKAuthVC: UIViewController {
     }
     
     func startAuthentication() {
-        let authURL = URL(string: "https://id.vk.com/authorize?state=abracadabra&response_type=code&code_challenge=B328HskZmYqdV7WbA1tlORmTT7vA2X7xRbXP6-GvE1o&code_challenge_method=s256&client_id=52118206&redirect_uri=vk52118206://vk.com/blank.html&prompt=login&scope=photos")!
+        let authURL = URL(string: "https://id.vk.com/authorize?state=abracadabra&response_type=code&code_challenge=B328HskZmYqdV7WbA1tlORmTT7vA2X7xRbXP6-GvE1o&code_challenge_method=s256&client_id=52118206&redirect_uri=vk52118206://vk.com/blank.html&prompt=login&scope=photos%20video")!
         let callbackURLScheme = "vk52118206"
 
         let authSession = ASWebAuthenticationSession(
@@ -66,12 +66,12 @@ class VKAuthVC: UIViewController {
             callbackURLScheme: callbackURLScheme
         ) { callbackURL, error in
             if let error = error {
-                print("Authentication failed with error: \(error.localizedDescription)")
+//                print("Authentication failed with error: \(error.localizedDescription)")
                 return
             }
 
             guard let callbackURL = callbackURL else {
-                print("Authentication failed: No callback URL")
+//                print("Authentication failed: No callback URL")
                 return
             }
             
@@ -82,7 +82,7 @@ class VKAuthVC: UIViewController {
             TokenManager.shared.getAccessToken(deviceId: deviceId, code: code) { accessToken in
                 print(accessToken)
                 if let error = PersistanceManager.saveToken(token: accessToken) {
-                    print(error)
+//                    print(error)
                 }
                 // TODO: проверить на утечку памяти
                 DispatchQueue.main.async {

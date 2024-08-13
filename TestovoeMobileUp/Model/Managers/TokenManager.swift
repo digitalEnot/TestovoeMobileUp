@@ -31,22 +31,22 @@ class TokenManager {
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
-                print(error)
+//                print(error)
             } else if let data = data {
                 do {
                     if let jsonObject = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         if let id_user = jsonObject["user_id"] as? Int {
-                            print("USER_ID: \(id_user)")
+//                            print("USER_ID: \(id_user)")
                         }
                         
                         if let accessToken = jsonObject["access_token"] as? String {
                             completion(accessToken)
                         } else {
-                            print("Access Token not found")
+//                            print("Access Token not found")
                         }
                     }
                 } catch {
-                    print(error)
+//                    print(error)
                 }
             }
         }

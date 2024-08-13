@@ -29,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         } catch {
             // заменить на алерт
-            print(error)
+//            print(error)
         }
         window?.makeKeyAndVisible()
     }

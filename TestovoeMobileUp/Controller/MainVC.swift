@@ -14,7 +14,7 @@ class MainVC: UIViewController {
     var vkPhotoCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     var vkVideoCollectionView: UICollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
     var photos: [Photo] = []
-    var images: [UIImage?] = []
+    var videos: [Video] = []
     
     var photosOnTheScreen: [Photo] = []
     var hasMorePhotos = true
@@ -37,14 +37,12 @@ class MainVC: UIViewController {
     }
     
     private func network() {
-        NetworkManager.shared.getFriends(accessToken: accessToken) { [weak self] photos in
+        NetworkManager.shared.getPhotos(accessToken: accessToken) { [weak self] photos in
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.photos = photos
-//                self.vkPhotoCollectionView.reloadData()
                 self.addPhotosToTheScreen()
             }
-            
         }
     }
     
@@ -122,7 +120,7 @@ class MainVC: UIViewController {
         do {
            try PersistanceManager.updateWith(accessToken: "", actionType: .remove)
         } catch {
-            print(error)
+//            print(error)
         }
         navigationController?.popViewController(animated: true)
     }
@@ -134,6 +132,15 @@ class MainVC: UIViewController {
             vkVideoCollectionView.isHidden = true
             vkPhotoCollectionView.isHidden = false
         case 1:
+            if videos.isEmpty {
+                NetworkManager.shared.getVideos(accessToken: accessToken) { [weak self] videos in
+                    guard let self = self else { return }
+                    DispatchQueue.main.async {
+                        self.videos = videos
+                        self.vkVideoCollectionView.reloadData()
+                    }
+                }
+            }
             vkVideoCollectionView.isHidden = false
             vkPhotoCollectionView.isHidden = true
         default:
@@ -155,7 +162,6 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             
             if offsetY > (contentHeight - height) {
                 guard hasMorePhotos else { return }
-//                page += 1
                 addPhotosToTheScreen()
             }
         }
@@ -166,7 +172,7 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
         if collectionView == vkPhotoCollectionView {
             photosOnTheScreen.count
         } else {
-            5
+            videos.count
         }
     }
     
@@ -182,13 +188,22 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
                 return UICollectionViewCell()
             }
         } else {
+            let videoImg = videos[indexPath.row].image[2].url
+            let videoTitle = videos[indexPath.row].description
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VkVideoCell.reuseID, for: indexPath) as! VkVideoCell
+            cell.set(vkVideoPrevPhoto: videoImg, videoLabel: videoTitle)
             return cell
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let destVC = VkPhotoVC(photoURL: photosOnTheScreen[indexPath.row].origPhoto.url, photoDate: Date.fromUnixTimeToRussianDateString(unixTime: photosOnTheScreen[indexPath.row].date))
-        navigationController?.pushViewController(destVC, animated: true)
+        if collectionView == vkPhotoCollectionView {
+            let destVC = VkPhotoVC(photoURL: photosOnTheScreen[indexPath.row].origPhoto.url, photoDate: Date.fromUnixTimeToRussianDateString(unixTime: photosOnTheScreen[indexPath.row].date))
+            navigationController?.pushViewController(destVC, animated: true)
+        } else {
+            let videoURL = videos[indexPath.row].player
+            let destVC = VideoPlayerVC(videoURL: videoURL)
+            navigationController?.pushViewController(destVC, animated: true)
+        }
     }
 }

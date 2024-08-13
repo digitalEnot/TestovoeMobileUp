@@ -20,6 +20,9 @@
 		73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */; };
 		73B2C4842C6B8E500047219A /* VkPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4832C6B8E500047219A /* VkPhotoVC.swift */; };
 		73B2C4862C6B942C0047219A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4852C6B942B0047219A /* Date+Ext.swift */; };
+		73B2C4892C6BC34D0047219A /* VkVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4882C6BC34D0047219A /* VkVideo.swift */; };
+		73B2C48B2C6BCBA60047219A /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C48A2C6BCBA60047219A /* VideoPlayerVC.swift */; };
+		73B2C48D2C6BD7700047219A /* VideoLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C48C2C6BD7700047219A /* VideoLabelView.swift */; };
 		73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E792C64DCE400B53360 /* AppDelegate.swift */; };
 		73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */; };
 		73F24E832C64DCE600B53360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E822C64DCE600B53360 /* Assets.xcassets */; };
@@ -59,6 +62,9 @@
 		73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthVC.swift; sourceTree = "<group>"; };
 		73B2C4832C6B8E500047219A /* VkPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkPhotoVC.swift; sourceTree = "<group>"; };
 		73B2C4852C6B942B0047219A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		73B2C4882C6BC34D0047219A /* VkVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkVideo.swift; sourceTree = "<group>"; };
+		73B2C48A2C6BCBA60047219A /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
+		73B2C48C2C6BD7700047219A /* VideoLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLabelView.swift; sourceTree = "<group>"; };
 		73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestovoeMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F24E792C64DCE400B53360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +110,7 @@
 				7351266E2C6615780040A43D /* Managers */,
 				7351266F2C6615AA0040A43D /* TMUError.swift */,
 				7309E62B2C67CC3D00652065 /* VkPhoto.swift */,
+				73B2C4882C6BC34D0047219A /* VkVideo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				73B2C4822C6B59670047219A /* Cells */,
+				73B2C48C2C6BD7700047219A /* VideoLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -122,6 +130,7 @@
 				73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */,
 				735126712C66216A0040A43D /* MainVC.swift */,
 				73B2C4832C6B8E500047219A /* VkPhotoVC.swift */,
+				73B2C48A2C6BCBA60047219A /* VideoPlayerVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -358,13 +367,16 @@
 				73B2C4842C6B8E500047219A /* VkPhotoVC.swift in Sources */,
 				73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */,
 				7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */,
+				73B2C48D2C6BD7700047219A /* VideoLabelView.swift in Sources */,
 				735126722C66216A0040A43D /* MainVC.swift in Sources */,
 				730522172C68ADFB0069F56D /* TokenManager.swift in Sources */,
 				73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */,
 				7309E62E2C67CCEB00652065 /* NetworkManager.swift in Sources */,
+				73B2C48B2C6BCBA60047219A /* VideoPlayerVC.swift in Sources */,
 				7309E6222C67A5C200652065 /* UIHelper.swift in Sources */,
 				7309E6242C67A66100652065 /* VkPhotoCell.swift in Sources */,
 				73B2C4862C6B942C0047219A /* Date+Ext.swift in Sources */,
+				73B2C4892C6BC34D0047219A /* VkVideo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
