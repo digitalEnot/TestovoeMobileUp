@@ -18,6 +18,8 @@
 		735126702C6615AA0040A43D /* TMUError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7351266F2C6615AA0040A43D /* TMUError.swift */; };
 		735126722C66216A0040A43D /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735126712C66216A0040A43D /* MainVC.swift */; };
 		73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */; };
+		73B2C4842C6B8E500047219A /* VkPhotoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4832C6B8E500047219A /* VkPhotoVC.swift */; };
+		73B2C4862C6B942C0047219A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4852C6B942B0047219A /* Date+Ext.swift */; };
 		73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E792C64DCE400B53360 /* AppDelegate.swift */; };
 		73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */; };
 		73F24E832C64DCE600B53360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E822C64DCE600B53360 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		7351266F2C6615AA0040A43D /* TMUError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMUError.swift; sourceTree = "<group>"; };
 		735126712C66216A0040A43D /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKAuthVC.swift; sourceTree = "<group>"; };
+		73B2C4832C6B8E500047219A /* VkPhotoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkPhotoVC.swift; sourceTree = "<group>"; };
+		73B2C4852C6B942B0047219A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestovoeMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F24E792C64DCE400B53360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 			children = (
 				73AF8E8C2C6541B2007F9F1F /* VKAuthVC.swift */,
 				735126712C66216A0040A43D /* MainVC.swift */,
+				73B2C4832C6B8E500047219A /* VkPhotoVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -151,6 +156,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		73B2C4872C6B94B10047219A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				73B2C4852C6B942B0047219A /* Date+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		73F24E6D2C64DCE400B53360 = {
 			isa = PBXGroup;
 			children = (
@@ -174,6 +187,7 @@
 		73F24E782C64DCE400B53360 /* TestovoeMobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				73B2C4872C6B94B10047219A /* Extensions */,
 				735126672C66142D0040A43D /* Model */,
 				735126692C6614400040A43D /* View */,
 				7351266A2C66144D0040A43D /* Controller */,
@@ -341,6 +355,7 @@
 				7309E62A2C67AD0F00652065 /* VkVideoCell.swift in Sources */,
 				735126702C6615AA0040A43D /* TMUError.swift in Sources */,
 				73AF8E8D2C6541B2007F9F1F /* VKAuthVC.swift in Sources */,
+				73B2C4842C6B8E500047219A /* VkPhotoVC.swift in Sources */,
 				73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */,
 				7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */,
 				735126722C66216A0040A43D /* MainVC.swift in Sources */,
@@ -349,6 +364,7 @@
 				7309E62E2C67CCEB00652065 /* NetworkManager.swift in Sources */,
 				7309E6222C67A5C200652065 /* UIHelper.swift in Sources */,
 				7309E6242C67A66100652065 /* VkPhotoCell.swift in Sources */,
+				73B2C4862C6B942C0047219A /* Date+Ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

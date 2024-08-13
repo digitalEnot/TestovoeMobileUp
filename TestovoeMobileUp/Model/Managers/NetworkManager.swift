@@ -22,7 +22,7 @@ class NetworkManager {
         let params: Parameters = [
             "access_token": accessToken,
             "owner_id": -128666765,
-            "count": 30,
+            "count": 143,
             "v": "5.199",
         ]
         

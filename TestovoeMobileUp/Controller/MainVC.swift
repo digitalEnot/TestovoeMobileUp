@@ -16,6 +16,9 @@ class MainVC: UIViewController {
     var photos: [Photo] = []
     var images: [UIImage?] = []
     
+    var photosOnTheScreen: [Photo] = []
+    var hasMorePhotos = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureElements()
@@ -38,14 +41,32 @@ class MainVC: UIViewController {
             guard let self = self else { return }
             DispatchQueue.main.async {
                 self.photos = photos
-                self.vkPhotoCollectionView.reloadData()
+//                self.vkPhotoCollectionView.reloadData()
+                self.addPhotosToTheScreen()
             }
+            
+        }
+    }
+    
+    private func addPhotosToTheScreen() {
+        if photosOnTheScreen.count < photos.count {
+            hasMorePhotos = true
+            let minEl = photosOnTheScreen.count
+            if photos.count - minEl >= 30 {
+                photosOnTheScreen.append(contentsOf: photos[minEl..<minEl + 30])
+            } else {
+                photosOnTheScreen.append(contentsOf: photos[minEl...])
+            }
+            vkPhotoCollectionView.reloadData()
+        } else {
+            hasMorePhotos = false
         }
     }
 
     
     private func configureNavItems() {
         title = " MobileUP Gallery"
+        navigationItem.backButtonTitle = ""
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Выход", style: .done, target: self, action: #selector(logOut))
         navigationItem.rightBarButtonItem?.tintColor = .label
@@ -123,17 +144,36 @@ class MainVC: UIViewController {
 
 
 extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if scrollView == vkPhotoCollectionView {
+            let offsetY = scrollView.contentOffset.y
+            // The height of the content at the moment (how far we scroll down)
+            let contentHeight = scrollView.contentSize.height
+            // The height of the content with the n followers
+            let height = scrollView.frame.size.height
+            // The height of the phone
+            
+            if offsetY > (contentHeight - height) {
+                guard hasMorePhotos else { return }
+//                page += 1
+                addPhotosToTheScreen()
+            }
+        }
+    }
+    
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == vkPhotoCollectionView {
-            photos.count
+            photosOnTheScreen.count
         } else {
             5
         }
     }
     
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if collectionView == vkPhotoCollectionView {
-            if let imageURL = photos[indexPath.row].sizes.first(where: { $0.type == .x }) {
+            if let imageURL = photosOnTheScreen[indexPath.row].sizes.first(where: { $0.type == .x }) {
                 let imageURL = imageURL.url
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VkPhotoCell.reuseID, for: indexPath) as! VkPhotoCell
                 cell.set(photoURL: imageURL)
@@ -145,5 +185,10 @@ extension MainVC: UICollectionViewDelegate, UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VkVideoCell.reuseID, for: indexPath) as! VkVideoCell
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let destVC = VkPhotoVC(photoURL: photosOnTheScreen[indexPath.row].origPhoto.url, photoDate: Date.fromUnixTimeToRussianDateString(unixTime: photosOnTheScreen[indexPath.row].date))
+        navigationController?.pushViewController(destVC, animated: true)
     }
 }
