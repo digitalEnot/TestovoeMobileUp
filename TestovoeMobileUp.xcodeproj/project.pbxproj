@@ -541,6 +541,7 @@
 				DEVELOPMENT_TEAM = VS5A9QFHJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestovoeMobileUp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Это нужно для сохранения фотографии";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -569,6 +570,7 @@
 				DEVELOPMENT_TEAM = VS5A9QFHJ4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TestovoeMobileUp/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Это нужно для сохранения фотографии";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
