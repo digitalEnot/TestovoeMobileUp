@@ -18,6 +18,7 @@ class VkVideoCell: UICollectionViewCell {
         clipsToBounds = true
         backgroundColor = .systemBackground
         configureUI()
+        configureLabel()
     }
     
     
@@ -25,15 +26,10 @@ class VkVideoCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // TODO: не отобратьжать пустые описания
+
     func set(vkVideoPrevPhoto: String, videoLabel: String) {
-        if videoLabel != "" {
-            print("lol")
-            self.videoLabel.textLabel.text = videoLabel
-            configureLabel()
-        } else {
-            print("2")
-        }
+        self.videoLabel.textLabel.text = videoLabel
+        self.videoLabel.isHidden = videoLabel.isEmpty
         
         NetworkManager.shared.downloadVkPhoto(from: vkVideoPrevPhoto) { [weak self] prevPhoto in
             guard let self else { return }
@@ -49,10 +45,9 @@ class VkVideoCell: UICollectionViewCell {
         videoLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            videoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             videoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-//            videoLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
-            videoLabel.widthAnchor.constraint(equalToConstant: 260)
+            videoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
+            videoLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 160),
         ])
     }
     
