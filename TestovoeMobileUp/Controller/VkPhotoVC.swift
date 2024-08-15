@@ -7,15 +7,13 @@
 
 import UIKit
 
-class VkPhotoVC: UIViewController {
-    let photoURL: String
-    let photoDate: String
-    let vkPhoto = UIImageView()
+final class VkPhotoVC: UIViewController {
+    private let photoURL: String
+    private let vkPhoto = UIImageView()
 
     
-    init(photoURL: String, photoDate: String) {
+    init(photoURL: String) {
         self.photoURL = photoURL
-        self.photoDate = photoDate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -34,19 +32,20 @@ class VkPhotoVC: UIViewController {
     
     
     private func setPhoto() {
-        NetworkManager.shared.downloadVkPhoto(from: photoURL) { [weak self] image in
-            guard let self else { return }
-            DispatchQueue.main.async {
-                self.vkPhoto.image = image
+        Task {
+            do {
+                let photo = try await NetworkManager.shared.downloadVkPhoto(from: photoURL)
+                self.vkPhoto.image = photo
+            } catch {
+                present(Alerts.shared.defaultAlert(withError: error), animated: true)
             }
         }
     }
     
     
     private func configureView() {
-        self.navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.tintColor = .label
         view.backgroundColor = .systemBackground
-        navigationItem.title = photoDate
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .done, target: self, action: #selector(shareButtonTapped))
         navigationItem.rightBarButtonItem?.tintColor = .label
     }
@@ -69,23 +68,17 @@ class VkPhotoVC: UIViewController {
         if let image = vkPhoto.image {
             let shareSheetVC = UIActivityViewController(activityItems: [image], applicationActivities: nil)
             
-            shareSheetVC.completionWithItemsHandler = { activity, completed, items, error in
+            shareSheetVC.completionWithItemsHandler = { [weak self] activity, completed, items, error in
                 if completed {
                     if activity == .saveToCameraRoll {
-                        self.showSaveSuccessAlert()
+                        self?.present(Alerts.shared.showPhotoAddedSuccessfully(), animated: true)
                     }
-                } else if let error = error {
-                    print(error.localizedDescription)
+                }
+                if let error = error {
+                    self?.present(Alerts.shared.defaultAlert(withError: error), animated: true)
                 }
             }
             present(shareSheetVC, animated: true)
         }
-    }
-    
-    
-    private func showSaveSuccessAlert() {
-        let alertController = UIAlertController(title: "Сохранили!", message: "Эта фотография была сохранена в вашу галерею.", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alertController, animated: true, completion: nil)
     }
 }

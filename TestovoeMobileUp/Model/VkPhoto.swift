@@ -12,12 +12,10 @@ struct MobileUpPhotos: Codable {
     let response: Photos
 }
 
-
 struct Photos: Codable {
-//    let count: Int
+    let count: Int
     let items: [Photo]
 }
-
 
 struct Photo: Codable, Hashable {
     let date: Double
@@ -32,19 +30,15 @@ struct Photo: Codable, Hashable {
 }
 
 struct OrigPhoto: Codable, Hashable {
-    let height: Int
-    let type: String
     let url: String
-    let width: Int
 }
 
 struct Sizes: Codable, Hashable {
-    let height: Int
     let type: TypeEnum
-    let width : Int
     let url: String
 }
 
+// Перечисления где каждая буква отвечает за какое-то разрешение изображения
 enum TypeEnum: String, Codable {
     case base = "base"
     case m = "m"

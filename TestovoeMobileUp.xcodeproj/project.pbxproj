@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		730522172C68ADFB0069F56D /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 730522162C68ADFB0069F56D /* TokenManager.swift */; };
 		7309E6222C67A5C200652065 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6212C67A5C200652065 /* UIHelper.swift */; };
 		7309E6242C67A66100652065 /* VkPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6232C67A66100652065 /* VkPhotoCell.swift */; };
 		7309E62A2C67AD0F00652065 /* VkVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7309E6292C67AD0F00652065 /* VkVideoCell.swift */; };
@@ -22,7 +21,8 @@
 		73B2C4862C6B942C0047219A /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4852C6B942B0047219A /* Date+Ext.swift */; };
 		73B2C4892C6BC34D0047219A /* VkVideo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4882C6BC34D0047219A /* VkVideo.swift */; };
 		73B2C48B2C6BCBA60047219A /* VideoPlayerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C48A2C6BCBA60047219A /* VideoPlayerVC.swift */; };
-		73B2C48D2C6BD7700047219A /* VideoLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C48C2C6BD7700047219A /* VideoLabelView.swift */; };
+		73B2C48D2C6BD7700047219A /* VideoTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C48C2C6BD7700047219A /* VideoTitleView.swift */; };
+		73B2C4922C6D93DF0047219A /* Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73B2C4912C6D93DF0047219A /* Alerts.swift */; };
 		73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E792C64DCE400B53360 /* AppDelegate.swift */; };
 		73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */; };
 		73F24E832C64DCE600B53360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73F24E822C64DCE600B53360 /* Assets.xcassets */; };
@@ -50,7 +50,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		730522162C68ADFB0069F56D /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		7309E6212C67A5C200652065 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		7309E6232C67A66100652065 /* VkPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkPhotoCell.swift; sourceTree = "<group>"; };
 		7309E6292C67AD0F00652065 /* VkVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkVideoCell.swift; sourceTree = "<group>"; };
@@ -64,7 +63,8 @@
 		73B2C4852C6B942B0047219A /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		73B2C4882C6BC34D0047219A /* VkVideo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VkVideo.swift; sourceTree = "<group>"; };
 		73B2C48A2C6BCBA60047219A /* VideoPlayerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerVC.swift; sourceTree = "<group>"; };
-		73B2C48C2C6BD7700047219A /* VideoLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoLabelView.swift; sourceTree = "<group>"; };
+		73B2C48C2C6BD7700047219A /* VideoTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoTitleView.swift; sourceTree = "<group>"; };
+		73B2C4912C6D93DF0047219A /* Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alerts.swift; sourceTree = "<group>"; };
 		73F24E762C64DCE400B53360 /* TestovoeMobileUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestovoeMobileUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		73F24E792C64DCE400B53360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		73F24E7B2C64DCE400B53360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,7 +107,6 @@
 		735126672C66142D0040A43D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				7351266E2C6615780040A43D /* Managers */,
 				7351266F2C6615AA0040A43D /* TMUError.swift */,
 				7309E62B2C67CC3D00652065 /* VkPhoto.swift */,
 				73B2C4882C6BC34D0047219A /* VkVideo.swift */,
@@ -118,8 +117,8 @@
 		735126692C6614400040A43D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				73B2C48C2C6BD7700047219A /* VideoTitleView.swift */,
 				73B2C4822C6B59670047219A /* Cells */,
-				73B2C48C2C6BD7700047219A /* VideoLabelView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -151,7 +150,6 @@
 			children = (
 				7351266C2C6614C70040A43D /* PersistanceManager.swift */,
 				7309E62D2C67CCEB00652065 /* NetworkManager.swift */,
-				730522162C68ADFB0069F56D /* TokenManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -171,6 +169,15 @@
 				73B2C4852C6B942B0047219A /* Date+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		73B2C4902C6CDA5C0047219A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7309E6212C67A5C200652065 /* UIHelper.swift */,
+				73B2C4912C6D93DF0047219A /* Alerts.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		73F24E6D2C64DCE400B53360 = {
@@ -196,13 +203,14 @@
 		73F24E782C64DCE400B53360 /* TestovoeMobileUp */ = {
 			isa = PBXGroup;
 			children = (
+				73B2C4902C6CDA5C0047219A /* Utilities */,
+				7351266E2C6615780040A43D /* Managers */,
 				73B2C4872C6B94B10047219A /* Extensions */,
 				735126672C66142D0040A43D /* Model */,
 				735126692C6614400040A43D /* View */,
 				7351266A2C66144D0040A43D /* Controller */,
 				7351266B2C6614700040A43D /* Support */,
 				73F24E872C64DCE600B53360 /* Info.plist */,
-				7309E6212C67A5C200652065 /* UIHelper.swift */,
 			);
 			path = TestovoeMobileUp;
 			sourceTree = "<group>";
@@ -367,10 +375,10 @@
 				73B2C4842C6B8E500047219A /* VkPhotoVC.swift in Sources */,
 				73F24E7A2C64DCE400B53360 /* AppDelegate.swift in Sources */,
 				7351266D2C6614C70040A43D /* PersistanceManager.swift in Sources */,
-				73B2C48D2C6BD7700047219A /* VideoLabelView.swift in Sources */,
+				73B2C48D2C6BD7700047219A /* VideoTitleView.swift in Sources */,
 				735126722C66216A0040A43D /* MainVC.swift in Sources */,
-				730522172C68ADFB0069F56D /* TokenManager.swift in Sources */,
 				73F24E7C2C64DCE400B53360 /* SceneDelegate.swift in Sources */,
+				73B2C4922C6D93DF0047219A /* Alerts.swift in Sources */,
 				7309E62E2C67CCEB00652065 /* NetworkManager.swift in Sources */,
 				73B2C48B2C6BCBA60047219A /* VideoPlayerVC.swift in Sources */,
 				7309E6222C67A5C200652065 /* UIHelper.swift in Sources */,

@@ -17,7 +17,7 @@ struct Videos: Codable {
 }
 
 struct Video: Codable {
-    let description: String
+    let title: String
     let image: [VideoPreview]
     let player: String
 }

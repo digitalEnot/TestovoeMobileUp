@@ -7,10 +7,11 @@
 
 import UIKit
 
-class VkVideoCell: UICollectionViewCell {
+final class VkVideoCell: UICollectionViewCell {
     static let reuseID = "VkVideoCell"
-    var vkVideoPrevPhoto = UIImageView()
-    var videoLabel = VideoLabelView()
+    private let vkVideoPrevPhoto = UIImageView()
+    private let videoTitle = VideoTitleView()
+    
     
     
     override init(frame: CGRect) {
@@ -18,7 +19,6 @@ class VkVideoCell: UICollectionViewCell {
         clipsToBounds = true
         backgroundColor = .systemBackground
         configureUI()
-        configureLabel()
     }
     
     
@@ -27,43 +27,32 @@ class VkVideoCell: UICollectionViewCell {
     }
     
 
-    func set(vkVideoPrevPhoto: String, videoLabel: String) {
-        self.videoLabel.textLabel.text = videoLabel
-        self.videoLabel.isHidden = videoLabel.isEmpty
-        
-        NetworkManager.shared.downloadVkPhoto(from: vkVideoPrevPhoto) { [weak self] prevPhoto in
-            guard let self else { return }
-            DispatchQueue.main.async {
-                self.vkVideoPrevPhoto.image = prevPhoto
-            }
-        }
-    }
-    
-    
-    private func configureLabel() {
-        addSubview(videoLabel)
-        videoLabel.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            videoLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            videoLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            videoLabel.leadingAnchor.constraint(greaterThanOrEqualTo: leadingAnchor, constant: 160),
-        ])
+    func set(vkVideoPrevPhoto: UIImage, videoTitle: String) {
+        self.videoTitle.textLabel.text = videoTitle
+        self.vkVideoPrevPhoto.image = vkVideoPrevPhoto
+        self.videoTitle.isHidden = videoTitle.isEmpty
     }
     
     
     private func configureUI() {
-        addSubview(vkVideoPrevPhoto)
+        contentView.addSubview(vkVideoPrevPhoto)
         vkVideoPrevPhoto.image = UIImage(named: "video")
         vkVideoPrevPhoto.clipsToBounds = true
         vkVideoPrevPhoto.contentMode = .scaleAspectFill
         vkVideoPrevPhoto.translatesAutoresizingMaskIntoConstraints = false
+        
+        contentView.addSubview(videoTitle)
+        videoTitle.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            vkVideoPrevPhoto.topAnchor.constraint(equalTo: topAnchor),
-            vkVideoPrevPhoto.leadingAnchor.constraint(equalTo: leadingAnchor),
-            vkVideoPrevPhoto.trailingAnchor.constraint(equalTo: trailingAnchor),
-            vkVideoPrevPhoto.heightAnchor.constraint(equalToConstant: 230),
+            vkVideoPrevPhoto.topAnchor.constraint(equalTo: contentView.topAnchor),
+            vkVideoPrevPhoto.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            vkVideoPrevPhoto.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            vkVideoPrevPhoto.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.size.width * 0.55), // Для корректного отображения на iphone se 1-го поколения
+            
+            videoTitle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
+            videoTitle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16),
+            videoTitle.leadingAnchor.constraint(greaterThanOrEqualTo: contentView.leadingAnchor, constant: UIScreen.main.bounds.size.width == 320 ? 90 : 160), // Для корректного отображения на iphone se 1-го поколения
         ])
     }
 }

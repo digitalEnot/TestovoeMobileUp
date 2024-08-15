@@ -11,14 +11,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
+        // Пытаемся достать сохраненный токен
         do {
             let token = try PersistanceManager.retrieveToken()
-            print(token)
             let vkAuthVC = VKAuthVC()
             if token.isEmpty {
                 window?.rootViewController = UINavigationController(rootViewController: vkAuthVC)
@@ -27,9 +26,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 navCont.pushViewController(MainVC(accessToken: token), animated: false)
                 window?.rootViewController = navCont
             }
+        // Если проиходит ошибка при декодировании сохраненного токена показываем старницу входа и ошибку
         } catch {
-            // заменить на алерт
-//            print(error)
+            window?.rootViewController = UINavigationController(rootViewController: VKAuthVC())
+            if  let error = error as? TMUError {
+                let alertController = UIAlertController(
+                    title: "Oшибка",
+                    message: error.rawValue,
+                    preferredStyle: .alert
+                )
+                alertController.addAction(UIAlertAction(title: "Ок", style: .default))
+                window?.rootViewController?.present(alertController, animated: true)
+            }
         }
         window?.makeKeyAndVisible()
     }

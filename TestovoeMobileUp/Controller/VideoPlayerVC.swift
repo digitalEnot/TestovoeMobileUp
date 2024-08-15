@@ -8,15 +8,17 @@
 import UIKit
 import WebKit
 
-class VideoPlayerVC: UIViewController {
+final class VideoPlayerVC: UIViewController {
+    private let videoURL: String
+    private let webView = WKWebView()
+    private var activityIndicator = UIActivityIndicatorView(style: .large)
     
-    let videoURL: String
-    let webView = WKWebView()
     
     init(videoURL: String) {
         self.videoURL = videoURL
         super.init(nibName: nil, bundle: nil)
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -31,7 +33,7 @@ class VideoPlayerVC: UIViewController {
     
     
     private func configureNavigationItems() {
-        self.navigationController?.navigationBar.tintColor = .label
+        navigationController?.navigationBar.tintColor = .label
         view.backgroundColor = .systemBackground
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "square.and.arrow.up"), style: .done, target: self, action: #selector(shareButtonTapped))
     }
@@ -39,12 +41,8 @@ class VideoPlayerVC: UIViewController {
     private func configure() {
         if let url = URL(string: videoURL) {
             view.addSubview(webView)
-            webView.backgroundColor = .white  // Set to your desired color
+            webView.backgroundColor = .white
             webView.isOpaque = false
-            
-//            webView.backgroundColor = .clear
-//            webView.contentMode = .scaleAspectFit
-//            webView.frame = view.frame
             webView.allowsBackForwardNavigationGestures = true
             webView.translatesAutoresizingMaskIntoConstraints = false
             
@@ -55,6 +53,8 @@ class VideoPlayerVC: UIViewController {
                 webView.heightAnchor.constraint(equalToConstant: 250)
             ])
             webView.load(URLRequest(url: url))
+        } else {
+            present(Alerts.shared.problemsWithUrlAlert(), animated: true)
         }
     }
     

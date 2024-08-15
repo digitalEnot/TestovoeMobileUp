@@ -7,14 +7,16 @@
 
 import UIKit
 
-class VideoLabelView: UIView {
-    
+final class VideoTitleView: UIView {
     let textLabel = UILabel()
+    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -22,20 +24,17 @@ class VideoLabelView: UIView {
     
     
     private func configure() {
-        backgroundColor = .clear
         layer.cornerRadius = 12
-        
-        let blurEffect = UIBlurEffect(style: .light)
-        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        addSubview(blurEffectView)
         blurEffectView.contentView.addSubview(textLabel)
         blurEffectView.layer.cornerRadius = 12
         blurEffectView.clipsToBounds = true
-        blurEffectView.backgroundColor = .clear
+        blurEffectView.backgroundColor = .white.withAlphaComponent(0.5)
+        blurEffectView.alpha = 0.7
         blurEffectView.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(blurEffectView)
         
         textLabel.translatesAutoresizingMaskIntoConstraints = false
-        textLabel.font = UIFont.systemFont(ofSize: 13)
+        textLabel.font = UIFont.systemFont(ofSize: 13, weight: .bold)
         textLabel.numberOfLines = 2
         textLabel.textColor = .black
         
