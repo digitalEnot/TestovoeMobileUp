@@ -21,14 +21,13 @@ final class Alerts {
             alertController.addAction(UIAlertAction(title: "Ок", style: .default))
             return alertController
         } else {
-//            let alertController = UIAlertController(
-//                title: "Ошибка",
-//                message: error.localizedDescription,
-//                preferredStyle: .alert
-//            )
-//            alertController.addAction(UIAlertAction(title: "Ок", style: .default))
-//            return alertController
-            return UIAlertController()
+            let alertController = UIAlertController(
+                title: "Ошибка",
+                message: error.localizedDescription,
+                preferredStyle: .alert
+            )
+            alertController.addAction(UIAlertAction(title: "Ок", style: .default))
+            return alertController
         }
     }
     
